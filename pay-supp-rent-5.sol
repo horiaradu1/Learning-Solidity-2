@@ -142,9 +142,12 @@ contract Supplier {
     }
     
     receive() external payable {
+        // Will give an error with both the fix and the attack
+        // Comment out the attack for it to work
         if (r.report_balance() >= 1 wei) {
             r.retrieve_resource();
         }
+        // attack ^
     }
 
     function signal_paylock() external {
